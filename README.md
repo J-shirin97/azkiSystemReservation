@@ -49,9 +49,6 @@ Responses:
 
 200 OK: Successfully canceled the reservation.
 
-Responses:
-
-201 Created: Slot successfully added.
 
 Database Initialization
 
