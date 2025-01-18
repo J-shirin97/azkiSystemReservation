@@ -49,6 +49,22 @@ Responses:
 
 200 OK: Successfully canceled the reservation.
 
+This project uses Swagger to provide interactive API documentation. You can access the Swagger UI to explore and test the API endpoints.
+
+Access Swagger UI
+After running the application, open the following URL in your browser:
+
+bash
+Copy
+Edit
+http://localhost:9090/swagger-ui/index.html
+
+How to Use
+Start the application by running:
+bash
+Copy
+Edit
+mvn spring-boot:run
 
 Database Initialization
 
