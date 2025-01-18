@@ -22,5 +22,4 @@ public interface AvailableSlotRepository extends JpaRepository<AvailableSlot, Lo
     @Query("SELECT s FROM AvailableSlot s WHERE s.id = :slotId")
     Optional<AvailableSlot> findSlotForReservation(@Param("slotId") Long slotId);
 
-     Optional<AvailableSlot> findById(Long id, LockModeType lockModeType);
 }
