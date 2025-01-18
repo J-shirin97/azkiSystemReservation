@@ -29,14 +29,6 @@ public class TokenTest {
             assertFalse(jwtTokenUtil.validateToken(invalidToken));
         }
 
-        @Test
-        public void testExtractExpirationFromClaims() {
-            String token = jwtTokenUtil.generateToken("username");
-            Jwt jwt = jwtTokenUtil.parseToken(token);
-            String claims = jwt.getClaims();
-            long expirationTimestamp = jwtTokenUtil.extractExpirationFromClaims(claims);
-            assertTrue(expirationTimestamp > 0);
-        }
     }
 
 

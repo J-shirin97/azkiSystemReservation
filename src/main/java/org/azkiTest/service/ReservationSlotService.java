@@ -1,5 +1,6 @@
 package org.azkiTest.service;
 
+import org.azkiTest.config.JwtTokenUtil;
 import org.azkiTest.exception.*;
 import org.azkiTest.model.AvailableSlot;
 import org.azkiTest.model.Reservation;
@@ -38,8 +39,9 @@ public class ReservationSlotService {
         this.usersRepository = usersRepository;
     }
 
-    public Page<AvailableSlot> getAvailableSlots(Integer size, Integer page) {
+    public Page<AvailableSlot> getAvailableSlots(Integer size, Integer page ) {
         try {
+
             Pageable pageable = PageRequest.of(page, size);
             return availableSlotRepository.findAllByIsReservedFalse(pageable);
         } catch (Exception e) {
@@ -51,6 +53,8 @@ public class ReservationSlotService {
     @Transactional
     public void reserveSlot(Long slotId, Long userId) {
         try {
+
+
             AvailableSlot slot = availableSlotRepository.findSlotForReservation(slotId)
                     .orElseThrow(() -> new SlotNotFoundException("Slot not found for ID: " + slotId));
 
@@ -88,6 +92,7 @@ public class ReservationSlotService {
     @Transactional
     public void cancelReservation(Long id) throws ReservationServiceException {
         try {
+
             Reservation reservation = reservationRepository.findById(id)
                     .orElseThrow(() -> new ResourceNotFoundException("Reservation not found for ID: " + id));
 
